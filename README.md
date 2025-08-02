@@ -18,5 +18,5 @@ $ ./build.sh run simple
 
 ## Acknowledgment
 
-- This library is heavily inspired in (obs-wsc)[https://github.com/univrsal/obs-wsc],
+- This library is heavily inspired in [obs-wsc](https://github.com/univrsal/obs-wsc),
 but supporting the 5.0 version of the `obs-websocket` protocol.
