@@ -1,22 +1,34 @@
 # owsc
 
-A _very simple_ `obs-websocket` client library written in C.
+A _very simple_ [obs-websocket](https://github.com/obsproject/obs-websocket)
+client library written in C.
 
 ## Getting Started
 
-You can check the provided examples in the `examples` folder.
-
-If you want to compile the library or run any of the examples you can use
-`build.sh`.
+[mongoose](https://github.com/cesanta/mongoose) is added as a git
+submodule, so make sure to clone the repository with `--recurse-submodules`.
 
 ```console
-# creates a `.so` file in `build`
+git clone --recurse-submodules https://github.com/UserIsntAvailable/owsc
+```
+
+### Building
+
+Running `build.sh` would build a shared library in the `build`
+directory.
+
+```console
 $ ./build.sh
-# runs `examples/simple.c`
+```
+
+You can also build and run the provided examples located in the
+`examples` directory.
+
+```console
 $ ./build.sh run simple
 ```
 
 ## Acknowledgment
 
 - This library is heavily inspired in [obs-wsc](https://github.com/univrsal/obs-wsc),
-but supporting the 5.0 version of the `obs-websocket` protocol.
+but _only_ supporting the newer 5.0 version of the `obs-websocket` protocol.

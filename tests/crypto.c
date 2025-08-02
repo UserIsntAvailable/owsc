@@ -1,5 +1,5 @@
-#include "external/mongoose.h"
 #include <crypto.h>
+#include <mongoose/mongoose.h>
 #include <stdio.h>
 #include <string.h>
 

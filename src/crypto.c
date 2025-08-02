@@ -1,5 +1,5 @@
 #include "crypto.h"
-#include "external/mongoose.h"
+#include <mongoose/mongoose.h>
 
 void create_auth_string(const char *challenge, const char *salt,
                         const char *password, char **auth)
