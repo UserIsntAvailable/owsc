@@ -9,7 +9,7 @@ client library written in C.
 submodule, so make sure to clone the repository with `--recurse-submodules`.
 
 ```console
-git clone --recurse-submodules https://github.com/UserIsntAvailable/owsc
+$ git clone --recurse-submodules https://github.com/UserIsntAvailable/owsc
 ```
 
 ### Building
