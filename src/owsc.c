@@ -187,6 +187,7 @@ void owsc_init(owsc *cln)
 
   if (cln->log_level == 0) cln->log_level = MG_LL_ERROR;
   if (cln->log_level > 0) mg_log_set(cln->log_level);
+  else mg_log_set(MG_LL_NONE);
 
   cln->identified = false;
   cln->subscribed_events = 0;
