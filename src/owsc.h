@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#include <mongoose/mongoose.h>
+#include "../thirdparty/mongoose/mongoose.h"
 
 typedef struct owsc owsc;
 typedef bool (*owsc_send_request_cb)(owsc *, struct mg_str, void *);

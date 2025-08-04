@@ -3,14 +3,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main(void)
 {
   int exit_code = 1;
   char *msg = "Cryptography fucking sucks";
   char *expected = "1Ct943GAT+6YQUUX47Ia/ncufilbe6+oD6lY+5kaCu4=";
   char *auth = NULL;
 
-  // Example taken from protocol document.
+  // Test strings taken from the protocol document.
   create_auth_string("+IxH4CnCiqpX1rM9scsNynZzbOe4KhDeYcTNS3PDaeY=",
                      "lM1GncleQOaCu9lT1yeUZhFYnqhsLLP1G5lAGo3ixaI=",
                      "supersecretpassword", &auth);

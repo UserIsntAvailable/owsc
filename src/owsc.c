@@ -3,7 +3,7 @@
 
 // XXX(Unavailable): More `MG_DEBUG` logs.
 // XXX(Unavailable): Allow `tls` connections.
-// FIXME(Unavailable): I'm not checking if writing to the server ever fails.
+// FIXME(Unavailable): I'm not checking if writing to the server fails.
 
 static int handle_op_code_zero(owsc *cln, struct mg_str msg)
 {
@@ -161,9 +161,9 @@ static void event_handler(struct mg_connection *con, int event, void *data)
         cln->status = -1;
         struct mg_str msg = wm->data;
         if (msg.len < sizeof(uint16_t))
-          MG_ERROR(("Connection closed without body"));
+          MG_ERROR(("Websocket connection closed without body"));
         else
-          MG_ERROR(("Connection closed with code (%d): %.*s",
+          MG_ERROR(("Websocket connection closed with code (%d): %.*s",
                     MG_LOAD_BE16(msg.buf), msg.len - sizeof(uint16_t),
                     msg.buf + sizeof(uint16_t)));
       }
@@ -237,7 +237,7 @@ int owsc_send_request_va(owsc *cln, const char *request_type,
              MG_ESC("op"), 6, MG_ESC("d"), MG_ESC("requestType"),
              MG_ESC(request_type), MG_ESC("requestId"),
              // XXX(Unavailable): I can keep this hardcoded, since the
-             // library doesn't support multi request.
+             // library doesn't support sending multiple requests concurrently.
              MG_ESC("f819dcf0-89cc-11eb-8f0e-382c4ac93b9c"));
   if (format)
   {
