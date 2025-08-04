@@ -15,11 +15,12 @@ mkdir -p build
 echo "*" >build/.gitignore
 
 # shellcheck disable=2086
-Build() { $CC $CFLAGS $LFLAGS $SRCS "$@"; }
+Build() { $CC $CFLAGS $SRCS $LFLAGS "$@"; }
 
 case "$1" in
-        '') Build -fPIC -shared   -o build/owsc.so                        ;;
-     'run') Build "examples/$2.c" -o "build/$2"       && "build/$2"       ;;
-    'test') Build "tests/$2.c"    -o "build/$2-tests" && "build/$2-tests" ;;
-         *) echo "unknown command: $2"                && exit 1           ;;
+        '') Build -c && mv *.o build && (cd build && ar rcs libowsc.a *.o) &&
+            Build -shared -fPIC   -o build/libowsc.so                      ;;
+     'run') Build "examples/$2.c" -o "build/$2"       && "build/$2"        ;;
+    'test') Build "tests/$2.c"    -o "build/$2-tests" && "build/$2-tests"  ;;
+         *) echo "unknown command: $2"                && exit 1            ;;
 esac
